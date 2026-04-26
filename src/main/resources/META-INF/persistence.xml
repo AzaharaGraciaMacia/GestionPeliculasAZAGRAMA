@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!-- Configuración de JPA (Jakarta Persistence) -->
+<!-- Ubicación del esquema XML incluida en xsi:schemaLocation -->
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+
+    <!-- Unidad de persistencia -->
+    <persistence-unit name="videoclub">
+
+        <!-- Proveedor JPA (Hibernate en este caso) -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Clase entidad que se va a mapear -->
+        <class>videoclub.model.Pelicula</class>
+
+        <properties>
+
+            <!-- Driver JDBC de MariaDB -->
+            <property name="jakarta.persistence.jdbc.driver"
+                      value="org.mariadb.jdbc.Driver"/>
+
+            <!-- URL de conexión a la base de datos -->
+            <property name="jakarta.persistence.jdbc.url"
+                      value="jdbc:mariadb://localhost:3308/videoclub"/>
+
+            <!-- Usuario de la base de datos -->
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+
+            <!-- Contraseña -->
+            <property name="jakarta.persistence.jdbc.password" value="1968"/>
+
+            <!-- Acción sobre la base de datos al iniciar -->
+            <!-- create: crea la tabla si es necesario -->
+            <property name="jakarta.persistence.schema-generation.database.action"
+                      value="update"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>
